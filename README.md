@@ -154,7 +154,7 @@ CRUD-операций.
 1. Клонируйте репозиторий:
 
    ```bash
-   git clone https://github.com/Yakvenalex/FastApiWithAuthSample.git .
+   git clone git@github.com:DmitryAlexandrov91/fastapi_sample.git
    ```
 
 2. Установите зависимости:
