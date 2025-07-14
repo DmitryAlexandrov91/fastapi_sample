@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
-from fastapi import FastAPI, APIRouter
+
+from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from loguru import logger
@@ -28,8 +29,6 @@ def create_app() -> FastAPI:
         description=(
             "Стартовая сборка с интегрированной SQLAlchemy 2 для разработки FastAPI приложений с продвинутой "
             "архитектурой, включающей авторизацию, аутентификацию и управление ролями пользователей.\n\n"
-            "**Автор проекта**: Яковенко Алексей\n"
-            "**Telegram**: https://t.me/PythonPathMaster"
         ),
         version="1.0.0",
         lifespan=lifespan,
@@ -59,21 +58,16 @@ def create_app() -> FastAPI:
 
 def register_routers(app: FastAPI) -> None:
     """Регистрация роутеров приложения."""
-    # Корневой роутер
     root_router = APIRouter()
 
     @root_router.get("/", tags=["root"])
     def home_page():
         return {
-            "message": "Добро пожаловать! Проект создан для сообщества 'Легкий путь в Python'.",
-            "community": "https://t.me/PythonPathMaster",
-            "author": "Яковенко Алексей"
+            "message": "Добро пожаловать!"
         }
 
-    # Подключение роутеров
     app.include_router(root_router, tags=["root"])
     app.include_router(router_auth, prefix='/auth', tags=['Auth'])
 
 
-# Создание экземпляра приложения
 app = create_app()

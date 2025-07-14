@@ -1,5 +1,6 @@
-from sqlalchemy import text, ForeignKey
+from sqlalchemy import ForeignKey, text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
+
 from app.dao.database import Base, str_uniq
 
 

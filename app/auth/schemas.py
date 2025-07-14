@@ -1,6 +1,9 @@
 import re
 from typing import Self
-from pydantic import BaseModel, ConfigDict, EmailStr, Field, field_validator, model_validator, computed_field
+
+from pydantic import (BaseModel, ConfigDict, EmailStr, Field, computed_field,
+                      field_validator, model_validator)
+
 from app.auth.utils import get_password_hash
 
 
